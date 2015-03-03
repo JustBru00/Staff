@@ -1,0 +1,12 @@
+name: Staff
+main: justbru00.staff.Staff		
+version: 1.0
+description: Shows staff.
+
+
+commands:
+ staff:
+       description: Shows staff.   
+ staffonline:
+       description: Shows online staff.           
+  
