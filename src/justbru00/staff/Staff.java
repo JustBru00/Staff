@@ -1,9 +1,6 @@
 package justbru00.staff;
 
 import java.util.logging.Logger;
-
-import net.minecraft.server.v1_8_R1.ScoreboardObjective;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
