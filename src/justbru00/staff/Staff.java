@@ -29,6 +29,11 @@ public class Staff extends JavaPlugin implements Listener {
 	public String dnJustBru00 = "&8[&b&lOwner&8] &6JustBru00";
 	public String dnComputerdude3 = "&8[&bCo-Owner&8] &6Computerdude3";
 	public String dn_BlazeCraft = "&8[&4Head-Admin&8] &6_BlazeCraft";
+	public String dnVhirus = "&8[&4Admin&8] &6Vhirus";
+	public String dnFireShadow196 = "&8[&bCo-Owner&8] &6FireShadow196";
+	public String dngoldbrother = "&8[&bCo-Owner&8] &6goldbrother";
+	public String dnagent_scout = "&8[&5MOD&8] &6agent_scout";
+	public String dntruejedity = "&8[&5MOD&8] &6truejedity";
 
 	public String color(String uncolored) {
 		String colored = ChatColor.translateAlternateColorCodes('&', uncolored);
@@ -45,9 +50,7 @@ public class Staff extends JavaPlugin implements Listener {
 			openGUI(player);
 		}
 		if (commandLabel.equalsIgnoreCase("staffonline")) {
-		 player.sendMessage(ChatColor.RED + "This Is Not Ready Yet.");		 
-			
-		
+		 player.sendMessage(ChatColor.RED + "This Is Not Ready Yet.");		
 		}
 
 		return false;
@@ -68,42 +71,57 @@ public class Staff extends JavaPlugin implements Listener {
 	}
 
 	public Inventory inv;
+	
+	public ItemStack skull(String displayName, String owner) {
+		ItemStack is = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+		SkullMeta sm = (SkullMeta) is.getItemMeta();
+		sm.setOwner(owner);
+		sm.setDisplayName(color(displayName));
+		is.setItemMeta(sm);		
+		return is;
+		}
 
 	public void openGUI(Player player) {
-		inv = Bukkit.createInventory(null, 18, ChatColor.AQUA + "Staff");
-
-		// JustBru00
-		ItemStack JustBru00 = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
-		SkullMeta skullmetaJustBru00 = (SkullMeta) JustBru00.getItemMeta();
-		skullmetaJustBru00.setDisplayName(color(dnJustBru00));
-		skullmetaJustBru00.setOwner("JustBru00");
-		JustBru00.setItemMeta(skullmetaJustBru00);
-		inv.setItem(0, JustBru00);
-
-		// Computerdude3
-		ItemStack Computerdude3 = new ItemStack(Material.SKULL_ITEM, 1,
-				(short) 3);
-		SkullMeta skullmetaComputerdude3 = (SkullMeta) Computerdude3
-				.getItemMeta();
-		skullmetaComputerdude3.setDisplayName(color(dnComputerdude3));
-		skullmetaComputerdude3.setOwner("Computerdude3");
-		Computerdude3.setItemMeta(skullmetaComputerdude3);
-		inv.setItem(1, Computerdude3);
+		inv = Bukkit.createInventory(null, 9, ChatColor.AQUA + "Staff");
+/**
+*		
+*		 0  1  2  3  4  5  6  7  8
+*		 9 10 11 12 13 14 15 16 17 
+*	
+*		0=JustBru00
+*		1=Computerdude3
+*		2=FireShadow196
+*		3=goldbrother
+*		4=_BlazeCraft
+*		5=Vhirus
+*		6=agent_scout
+*		7=truejedity
+*		8=close button
+*
+**/		
 		
-		// _BlazeCraft
-		ItemStack _BlazeCraft = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
-		SkullMeta sk_BlazeCraft = (SkullMeta) _BlazeCraft.getItemMeta();
-		sk_BlazeCraft.setDisplayName(color(dn_BlazeCraft));
-		sk_BlazeCraft.setOwner("_BlazeCraft");
-		_BlazeCraft.setItemMeta(sk_BlazeCraft);
-		inv.setItem(2, _BlazeCraft);
-
+		// JustBru00		
+		inv.setItem(0, skull(dnJustBru00, "JustBru00"));
+		// Computerdude3		
+		inv.setItem(1, skull(dnComputerdude3, "Computerdude3"));
+		//FireShadow196
+		inv.setItem(2, skull(dnFireShadow196, "FireShadow196"));
+		//goldbrother
+		inv.setItem(3, skull(dngoldbrother, "goldbrother"));		
+		// _BlazeCraft		
+		inv.setItem(4, skull(dn_BlazeCraft, "_BlazeCraft"));
+		//Vhirus
+		inv.setItem(5, skull(dnVhirus, "Vhirus"));
+		//agent_scout
+		inv.setItem(6, skull(dnagent_scout, "agent_scout"));
+		//truejedity
+		inv.setItem(7, skull(dntruejedity, "truejedity"));		
 		// Close Barrier
 		ItemStack Close = new ItemStack(Material.BARRIER);
 		ItemMeta closemeta = Close.getItemMeta();
 		closemeta.setDisplayName(ChatColor.DARK_RED + "Close");
 		Close.setItemMeta(closemeta);
-		inv.setItem(17, Close);
+		inv.setItem(8, Close);
 
 		player.openInventory(inv);
 	}
