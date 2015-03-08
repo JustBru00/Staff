@@ -1,7 +1,10 @@
+/**
+*This API is for usage with plugins by Justin Brubaker and for usage by non-commercial open source projects.
+*Contact Justin Brubaker @ justbru00@gmail.com for a usage consent for commerical projects.
+*/
 package me.justbru00.staff.api;
 
 import java.util.ArrayList;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
