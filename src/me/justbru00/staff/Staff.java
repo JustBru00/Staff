@@ -1,6 +1,5 @@
 package me.justbru00.staff;
 
-import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import me.justbru00.staff.api.JustAPI;
@@ -17,7 +16,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -35,6 +33,7 @@ public class Staff extends JavaPlugin implements Listener {
 	public String dngoldbrother = "&8[&bCo-Owner&8] &6goldbrother";
 	public String dnagent_scout = "&8[&5MOD&8] &6agent_scout";
 	public String dntruejedity = "&8[&5MOD&8] &6truejedity";
+	public String guiName = "&b&l&nStaff";
 	
 
 	@Override
@@ -71,7 +70,7 @@ public class Staff extends JavaPlugin implements Listener {
 	
 
 	public void openGUI(Player player) {
-		inv = Bukkit.createInventory(null, 9, ChatColor.AQUA + "Staff");
+		inv = Bukkit.createInventory(null, 9, api.color(guiName));
 /**
 *		
 *		 0  1  2  3  4  5  6  7  8
@@ -119,18 +118,20 @@ public class Staff extends JavaPlugin implements Listener {
 	public void InventoryClick(InventoryClickEvent e) {
 		Player p = (Player) e.getWhoClicked();
 
-		if (e.getInventory().getTitle().contains(ChatColor.AQUA + "Staff")) {
+		if (e.getInventory().getTitle().contains(api.color(guiName))) {
 			e.setCancelled(true);
 
 			if (e.getCurrentItem() == null) {
 				return;
-
-			} else if (e.getCurrentItem().getType() == Material.BARRIER) {
-
+			}
+			if (e.getSlot() >= -1 && e.getSlot() != 8) {
+				p.chat("/msg " + p.getName() + " Please use /helpop to get help from staff.");
+			}
+			else if (e.getCurrentItem().getType() == Material.BARRIER) {
 				p.sendMessage(ChatColor.RED + "Closed GUI.");
 				p.closeInventory();
-
 			}
+			
 		}
 
 	}
