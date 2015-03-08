@@ -1,4 +1,4 @@
-package justbru00.staff;
+package me.justbru00.staff;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
