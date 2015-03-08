@@ -3,6 +3,8 @@ package me.justbru00.staff;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+import me.justbru00.staff.api.JustAPI;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -22,6 +24,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Staff extends JavaPlugin implements Listener {
 
 	Logger logger = Logger.getLogger("Minecraft");
+	
+	private JustAPI api = new JustAPI();
 
 	public String dnJustBru00 = "&8[&b&lOwner&8] &6JustBru00";
 	public String dnComputerdude3 = "&8[&bCo-Owner&8] &6Computerdude3";
@@ -31,11 +35,7 @@ public class Staff extends JavaPlugin implements Listener {
 	public String dngoldbrother = "&8[&bCo-Owner&8] &6goldbrother";
 	public String dnagent_scout = "&8[&5MOD&8] &6agent_scout";
 	public String dntruejedity = "&8[&5MOD&8] &6truejedity";
-
-	public String color(String uncolored) {
-		String colored = ChatColor.translateAlternateColorCodes('&', uncolored);
-		return colored;
-	}
+	
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command,
@@ -73,9 +73,9 @@ public class Staff extends JavaPlugin implements Listener {
 		ItemStack is = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
 		SkullMeta sm = (SkullMeta) is.getItemMeta();
 		ArrayList<String> reallore = new ArrayList<String>();
-		reallore.add(color(lore));
+		reallore.add(api.color(lore));
 		sm.setOwner(owner);
-		sm.setDisplayName(color(displayName));
+		sm.setDisplayName(api.color(displayName));
 		sm.setLore(reallore);
 		is.setItemMeta(sm);		
 		return is;
