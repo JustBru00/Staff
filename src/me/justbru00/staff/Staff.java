@@ -69,17 +69,6 @@ public class Staff extends JavaPlugin implements Listener {
 
 	public Inventory inv;
 	
-	public ItemStack skull(String displayName, String owner, String lore) {
-		ItemStack is = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
-		SkullMeta sm = (SkullMeta) is.getItemMeta();
-		ArrayList<String> reallore = new ArrayList<String>();
-		reallore.add(api.color(lore));
-		sm.setOwner(owner);
-		sm.setDisplayName(api.color(displayName));
-		sm.setLore(reallore);
-		is.setItemMeta(sm);		
-		return is;
-		}
 
 	public void openGUI(Player player) {
 		inv = Bukkit.createInventory(null, 9, ChatColor.AQUA + "Staff");
@@ -101,21 +90,21 @@ public class Staff extends JavaPlugin implements Listener {
 **/		
 		
 		// JustBru00		
-		inv.setItem(0, skull(dnJustBru00, "JustBru00", "&eAlso a &8[&5DEV&8]"));
+		inv.setItem(0, api.createSkullwithLore(dnJustBru00, "JustBru00", "&eAlso a &8[&5DEV&8]"));
 		// Computerdude3		
-		inv.setItem(1, skull(dnComputerdude3, "Computerdude3", "&eAlso a &8[&1Builder&8]"));
+		inv.setItem(1, api.createSkullwithLore(dnComputerdude3, "Computerdude3", "&eAlso a &8[&1Builder&8]"));
 		//FireShadow196
-		inv.setItem(2, skull(dnFireShadow196, "FireShadow196", "&eAlso a &8[&1Head-Builder&8]"));
+		inv.setItem(2, api.createSkullwithLore(dnFireShadow196, "FireShadow196", "&eAlso a &8[&1Head-Builder&8]"));
 		//goldbrother
-		inv.setItem(3, skull(dngoldbrother, "goldbrother", "&eAlso a &8[&cPvP&5MOD&8]"));		
+		inv.setItem(3, api.createSkullwithLore(dngoldbrother, "goldbrother", "&eAlso a &8[&cPvP&5MOD&8]"));		
 		// _BlazeCraft		
-		inv.setItem(4, skull(dn_BlazeCraft, "_BlazeCraft", "&eAlso a &8[&1Builder&8]"));
+		inv.setItem(4, api.createSkullwithLore(dn_BlazeCraft, "_BlazeCraft", "&eAlso a &8[&1Builder&8]"));
 		//Vhirus
-		inv.setItem(5, skull(dnVhirus, "Vhirus", "&eHas been with the server a long time."));
+		inv.setItem(5, api.createSkullwithLore(dnVhirus, "Vhirus", "&eHas been with the server a long time."));
 		//agent_scout
-		inv.setItem(6, skull(dnagent_scout, "agent_scout", "&eOne of our newest staff!"));
+		inv.setItem(6, api.createSkullwithLore(dnagent_scout, "agent_scout", "&eOne of our newest staff!"));
 		//truejedity
-		inv.setItem(7, skull(dntruejedity, "truejedity", "&eOne of our newest staff!"));		
+		inv.setItem(7, api.createSkullwithLore(dntruejedity, "truejedity", "&eOne of our newest staff!"));		
 		// Close Barrier
 		ItemStack Close = new ItemStack(Material.BARRIER);
 		ItemMeta closemeta = Close.getItemMeta();

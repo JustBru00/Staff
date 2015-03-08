@@ -1,5 +1,7 @@
 package me.justbru00.staff.api;
 
+import java.util.ArrayList;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -12,14 +14,26 @@ public class JustAPI {
 		ItemStack is = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
 		SkullMeta sm = (SkullMeta) is.getItemMeta();		
 		sm.setOwner(owner);
-		sm.setDisplayName(noncoloredDisplayName);
+		sm.setDisplayName(color(noncoloredDisplayName));
+		is.setItemMeta(sm);		
+		return is;		
+	}
+	
+	public ItemStack createSkullwithLore(String noncoloredDisplayName, String owner, String lore) {
+		ItemStack is = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+		SkullMeta sm = (SkullMeta) is.getItemMeta();		
+		sm.setOwner(owner);
+		ArrayList<String> reallore = new ArrayList<String>();
+		reallore.add(color(lore));
+		sm.setDisplayName(color(noncoloredDisplayName));
+		sm.setLore(reallore);
 		is.setItemMeta(sm);		
 		return is;		
 	}
 	
 	public ItemStack renameDisplayName(ItemStack toRename, String Displayname) {
 		ItemStack is = toRename;
-		ItemMeta im = is.getItemMeta();
+		ItemMeta im = is.getItemMeta();	
 		im.setDisplayName(color(Displayname));
 		is.setItemMeta(im);		
 		return is;
