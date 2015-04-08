@@ -30,8 +30,7 @@ public class Staff extends JavaPlugin implements Listener {
 	public String dn_BlazeCraft = "&8[&4Head-Admin&8] &6_BlazeCraft";
 	public String dnVhirus = "&8[&4Admin&8] &6Vhirus";
 	public String dnFireShadow196 = "&8[&bCo-Owner&8] &6FireShadow196";
-	public String dngoldbrother = "&8[&bCo-Owner&8] &6goldbrother";
-	public String dnagent_scout = "&8[&5MOD&8] &6agent_scout";
+	public String dngoldbrother = "&8[&bCo-Owner&8] &6goldbrother";	
 	public String dntruejedity = "&8[&5MOD&8] &6truejedity";
 	public String guiName = "&b&l&nStaff";
 	
@@ -82,7 +81,7 @@ public class Staff extends JavaPlugin implements Listener {
 *		3=goldbrother
 *		4=_BlazeCraft
 *		5=Vhirus
-*		6=agent_scout
+*		
 *		7=truejedity
 *		8=close button
 *
@@ -100,10 +99,9 @@ public class Staff extends JavaPlugin implements Listener {
 		inv.setItem(4, api.createSkullwithLore(dn_BlazeCraft, "_BlazeCraft", "&eAlso a &8[&1Builder&8]"));
 		//Vhirus
 		inv.setItem(5, api.createSkullwithLore(dnVhirus, "Vhirus", "&eHas been with the server a long time."));
-		//agent_scout
-		inv.setItem(6, api.createSkullwithLore(dnagent_scout, "agent_scout", "&eOne of our newest staff!"));
+		//agent_scout		
 		//truejedity
-		inv.setItem(7, api.createSkullwithLore(dntruejedity, "truejedity", "&eOne of our newest staff!"));		
+		inv.setItem(6, api.createSkullwithLore(dntruejedity, "truejedity", "&eOne of our newest staff!"));		
 		// Close Barrier
 		ItemStack Close = new ItemStack(Material.BARRIER);
 		ItemMeta closemeta = Close.getItemMeta();
